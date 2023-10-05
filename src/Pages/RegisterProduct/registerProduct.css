@@ -1,0 +1,19 @@
+.background-black {
+  background-color: rgba(72, 231, 28, 0.482);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-center {
+  text-align: center;
+}
