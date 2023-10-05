@@ -1,0 +1,55 @@
+body{
+  background-color: rgb(255, 255, 255);
+}
+.conten{
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+.portada{
+  width: 100% !important;
+  height: 500px !important;
+  background-image: url('https://arc-anglerfish-arc2-prod-artear.s3.amazonaws.com/public/JOUCJZQGW7AKQB4AO5JEZ4DOLI.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.title{
+  color: #000000;
+  font-size: 80px;
+  transition: transform 1s ease-in-out;
+  transform: translateX(110%);
+}
+.title.titleVisible {
+  transform: translateX(0);
+}
+.subTitle{
+  color: #000000;
+  font-size: 50px;
+  transition: transform 1s ease-in-out;
+  transform: translateX(-110%);
+}
+.subTitle.subTitleVisible {
+  transform: translateX(0);
+}
+.cardTitle {
+  transition: transform 1s ease-in-out;
+  transform: translateY(-300%);
+}
+.cardTitle.cardTitleVisible {
+  transform: translateY(0);
+}
+@media (max-width: 800px) {
+  .title{
+    font-size: 60px;
+  }
+  .subTitle{
+    font-size: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .title{
+    font-size: 50px;
+  }
+  .subTitle{
+    font-size: 25px;
+  }
+}
