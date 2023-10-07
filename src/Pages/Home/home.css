@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(72, 231, 28, 0.5);
 }
 .conten{
   max-width: 100% !important;
@@ -8,12 +8,13 @@ body{
 .portada{
   width: 100% !important;
   height: 500px !important;
-  background-image: url('https://arc-anglerfish-arc2-prod-artear.s3.amazonaws.com/public/JOUCJZQGW7AKQB4AO5JEZ4DOLI.jpg');
+  background-image: url('../../assets/portada.jpg');
   background-size: cover;
   background-position: center;
 }
 .title{
   color: #000000;
+  text-shadow: 2px 2px 2px var(--colorDetail);
   font-size: 80px;
   transition: transform 1s ease-in-out;
   transform: translateX(110%);
@@ -23,6 +24,7 @@ body{
 }
 .subTitle{
   color: #000000;
+  text-shadow: 2px 2px 2px var(--colorDetail);
   font-size: 50px;
   transition: transform 1s ease-in-out;
   transform: translateX(-110%);
