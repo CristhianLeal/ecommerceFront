@@ -10,7 +10,6 @@ const RegisterProduct = () => {
   const onSubmit = async (data) => {
     if (name === null) {
       try {
-        console.log(data)
         const token = sessionStorage.getItem('token')
         const headers = {
           'Content-Type': 'application/json',
@@ -19,6 +18,7 @@ const RegisterProduct = () => {
         const response = await axios.post('http://localhost:8003/products', data, { headers })
         if (response.status === 201) {
           toast.success(response.data.message)
+          window.location.href = '/adminproducts'
         } else {
           toast.error(response.data)
         }
@@ -38,7 +38,7 @@ const RegisterProduct = () => {
         if (response.status === 201) {
           toast.success(response.data.message)
           clearStorage()
-          window.location.href = '/adminabout'
+          window.location.href = '/adminproducts'
         } else {
           toast.error(response.data)
         }
@@ -64,7 +64,7 @@ const RegisterProduct = () => {
   }
   return (
     <div className="background-black d-flex flex-column">
-      <div className="form-container p-3 w-50">
+      <div className="form-container p-3 w-75">
         <h3 className="text-center">{name === null ? 'CREAR PRODUCTO' : `EDITAR PRODUCTO ${name}`}</h3>
         <form className='text-center' onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3">
@@ -99,7 +99,7 @@ const RegisterProduct = () => {
             {errors.description && <div className="invalid-feedback">{errors.description.message}</div>}
           </div>
           <div className="mb-3">
-            <label className="form-label">Imagen</label>
+            <label className="form-label">URL Imagen</label>
             <input
             type="text"
             className={`form-control ${errors.imageUrl ? 'is-invalid' : ''}`}
@@ -114,7 +114,7 @@ const RegisterProduct = () => {
             {errors.imageUrl && <div className="invalid-feedback">{errors.imageUrl.message}</div>}
           </div>
           <div className="mb-3">
-            <label className="form-label">Formato</label>
+            <label className="form-label">Precio</label>
             <input
             type="text"
             className={`form-control ${errors.price ? 'is-invalid' : ''}`}
