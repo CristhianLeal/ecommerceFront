@@ -1,4 +1,8 @@
 #root {
+  --colorDetail : rgba(32, 103, 2);
+  --colorHome : rgba(72, 231, 28, 0.5);
+}
+*{
   margin: 0;
   padding: 0;
 }
