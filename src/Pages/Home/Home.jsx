@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import './home.css'
 import Card from '../../Components/Card/Card'
-import axios from 'axios'
+import { useProducts } from '../../hooks/useProducts'
 
 const Home = () => {
   const [refVisible, setRefVisible] = useState([])
-  const [postData, setPostData] = useState([])
+  const { productsData } = useProducts()
   const title = useRef(null)
   const subTitle = useRef(null)
   const cardTitle = useRef(null)
@@ -21,22 +21,10 @@ const Home = () => {
     })
     setRefVisible(visibilities)
   }
-  const moveRegister = () => {
-    window.location.href = '/registerproduct'
-  }
   useEffect(() => {
     handleScroll()
     window.scrollTo(0, 0)
     window.addEventListener('scroll', handleScroll)
-    const fetchPost = async () => {
-      try {
-        const response = await axios.get('http://localhost:8003/pruducts')
-        setPostData(response.data.posts)
-      } catch (error) {
-        console.error('Error al obtener los posts:', error)
-      }
-    }
-    fetchPost()
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -51,13 +39,14 @@ const Home = () => {
       <div>
         <h2 ref={cardTitle} className={`subTitle mt-4 text-center cardTitle ${refVisible[2] ? 'cardTitleVisible' : ''}`}>NUESTROS PRODUCTOS</h2>
         <div className='d-flex flex-wrap align-items-center justify-content-center gap-5 mt-3 mb-3'>
-          {postData.map((post) => (
-            <Card key={post._id} post={post} />
-          ))}
+          {productsData.length === 0
+            ? (
+            <div>Cargando productos...</div>
+              )
+            : (productsData.map((product) => (
+            <Card key={product._id} product={product} />
+              )))}
         </div>
-      </div>
-      <div className='text-center'>
-        <button onClick={moveRegister} >Add Product</button>
       </div>
     </div>
   )
