@@ -75,10 +75,14 @@ const RegisterProduct = () => {
               className={`form-control ${errors.name ? 'is-invalid' : ''}`}
               placeholder="Frutos Secos"
               {...register('name', {
-                required: 'name is required',
+                required: 'El nombre es requerido',
                 minLength: {
                   value: 3,
                   message: 'El Nombre debe tener al menos 3 caracteres'
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'El Nombre no debe tener más de 20 caracteres'
                 }
               })}
             />
@@ -90,10 +94,14 @@ const RegisterProduct = () => {
               className={`form-control ${errors.description ? 'is-invalid' : ''}`}
               placeholder="Nueces y almendras"
               {...register('description', {
-                required: 'description is required',
+                required: 'La descripción es requerida',
                 minLength: {
                   value: 5,
                   message: 'La descripción debe tener la menos 5 caracteres'
+                },
+                maxLength: {
+                  value: 30,
+                  message: 'La descripción no debe tener más de 30 caracteres'
                 }
               })}
             />
@@ -106,10 +114,14 @@ const RegisterProduct = () => {
             className={`form-control ${errors.imageUrl ? 'is-invalid' : ''}`}
             placeholder="www.foto.com"
             {...register('imageUrl', {
-              required: 'imageUrl is required',
+              required: 'La imagen es requerida',
               minLength: {
                 value: 5,
                 message: 'La imagen debe tener al menos 5 caracteres'
+              },
+              maxLength: {
+                value: 200,
+                message: 'La imagen no debe tener más de 200 caracteres'
               }
             })} />
             {errors.imageUrl && <div className="invalid-feedback">{errors.imageUrl.message}</div>}
@@ -117,14 +129,18 @@ const RegisterProduct = () => {
           <div className="mb-3">
             <label className="form-label">Precio</label>
             <input
-            type="text"
+            type="number"
             className={`form-control ${errors.price ? 'is-invalid' : ''}`}
             placeholder="1500"
             {...register('price', {
-              required: 'price is required',
+              required: 'El precio es requerido',
               minLength: {
                 value: 2,
                 message: 'El precio debe tener al menos 2 caracteres'
+              },
+              maxLength: {
+                value: 10,
+                message: 'El precio no debe tener más de 10 caracteres'
               }
             })} />
             {errors.price && <div className="invalid-feedback">{errors.price.message}</div>}
