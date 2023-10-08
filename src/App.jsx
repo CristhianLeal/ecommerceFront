@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-// import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { Home, DetailPage, RegisterProduct, AdminProducts } from './Pages'
@@ -15,10 +15,10 @@ function App () {
         <Route path='/registerproduct' element={<RegisterProduct />} />
         <Route path='/adminproducts' element={<AdminProducts />} />
       </Routes>
-      {/* <ToastContainer
+      <ToastContainer
         position="top-right"
         autoClose={2000}
-      /> */}
+      />
     </>
   )
 }
