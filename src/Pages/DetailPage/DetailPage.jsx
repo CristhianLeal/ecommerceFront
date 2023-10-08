@@ -42,8 +42,8 @@ const DetailPage = () => {
         <div className='text-center pt-4 pb-4'>
           <img src={productData?.imageUrl} className="imgDetail border-0" alt="Imagen" onClick={() => toggleFullScreenImage(productData?.imageUrl)} />
         </div>
-        <p className='text-black SubDetail text-center mb-5 px-2'>Descripción: {productData?.description}</p>
-        <p className='text-black SubDetail text-center mb-5 px-2'>Precio:$ {productData?.price}!</p>
+        <p className='text-black SubDetail text-center mb-4 px-2'>Descripción: {productData?.description}</p>
+        <p className='text-black SubDetail text-center mb-4 px-2'>Precio:$ {productData?.price}!</p>
         <div className='text-center'>
           <Link className='text-decoration-none text-white mt-4 ' to={'/'}>
             <button className="btn btn-success mx-2">
