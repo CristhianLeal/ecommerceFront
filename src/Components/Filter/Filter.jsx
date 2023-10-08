@@ -13,6 +13,7 @@ const Filter = () => {
         const response = await axios.post('http://localhost:8003/products/filter', data, { headers })
         if (response.status === 200) {
           toast.success(response.data.message)
+          window.location.href = `/detailpage/${response.data.data[0]._id}`
         } else {
           toast.error(response.data.message)
         }
