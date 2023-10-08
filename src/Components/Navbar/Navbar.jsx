@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import './navbar.css'
@@ -25,14 +25,20 @@ const Navbar = () => {
     }
     fetchProducts()
     closeNavbar()
-    setLoged(!loged)
+    setLoged(true)
     fetchProducts()
   }
   const closing = () => {
     sessionStorage.clear()
     closeNavbar()
-    setLoged(!loged)
+    setLoged(false)
   }
+  useEffect(() => {
+    const token = sessionStorage.getItem('token')
+    if (token !== null) {
+      setLoged(true)
+    }
+  }, [])
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top text-white navTotal py-2">
