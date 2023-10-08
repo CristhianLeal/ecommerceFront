@@ -62,6 +62,7 @@ const RegisterProduct = () => {
   const clearStorage = () => {
     localStorage.clear()
   }
+
   return (
     <div className="background-black d-flex flex-column">
       <div className="form-container p-3 w-75">
