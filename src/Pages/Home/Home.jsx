@@ -4,7 +4,7 @@ import { Card, Filter } from '../../Components'
 import { useProducts } from '../../hooks/useProducts'
 
 const Home = () => {
-  const [refVisible, setRefVisible] = useState([])
+  const [visible, setVisible] = useState([])
   const { productsData } = useProducts()
   const title = useRef(null)
   const subTitle = useRef(null)
@@ -19,7 +19,7 @@ const Home = () => {
       }
       return false
     })
-    setRefVisible(visibilities)
+    setVisible(visibilities)
   }
   useEffect(() => {
     handleScroll()
@@ -33,11 +33,11 @@ const Home = () => {
   return (
     <div className='conten'>
       <div className='portada d-flex justify-content-center flex-column'>
-        <h1 ref={title} className={`title pt-5 text-center ${refVisible[0] ? 'titleVisible' : ''}`}>NUTRILU STORE</h1>
-        <h2 ref={subTitle} className={`subTitle text-center ${refVisible[1] ? 'subTitleVisible' : ''}`}>TIENDA SALUDABLE</h2>
+        <h1 ref={title} className={`title pt-5 text-center ${visible[0] ? 'titleVisible' : ''}`}>NUTRILU STORE</h1>
+        <h2 ref={subTitle} className={`subTitle text-center ${visible[1] ? 'subTitleVisible' : ''}`}>TIENDA SALUDABLE</h2>
       </div>
       <div>
-        <h2 ref={cardTitle} className={`subTitle mt-4 text-center cardTitle ${refVisible[2] ? 'cardTitleVisible' : ''}`}>NUESTROS PRODUCTOS</h2>
+        <h2 ref={cardTitle} className={`subTitle mt-4 text-center cardTitle ${visible[2] ? 'cardTitleVisible' : ''}`}>NUESTROS PRODUCTOS</h2>
         <Filter/>
         <div className='d-flex flex-wrap align-items-center justify-content-center gap-5 mt-3 mb-3'>
           {productsData.length === 0
