@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './home.css'
-import Card from '../../Components/Card/Card'
+import { Card, Filter } from '../../Components'
 import { useProducts } from '../../hooks/useProducts'
 
 const Home = () => {
@@ -38,6 +38,7 @@ const Home = () => {
       </div>
       <div>
         <h2 ref={cardTitle} className={`subTitle mt-4 text-center cardTitle ${refVisible[2] ? 'cardTitleVisible' : ''}`}>NUESTROS PRODUCTOS</h2>
+        <Filter/>
         <div className='d-flex flex-wrap align-items-center justify-content-center gap-5 mt-3 mb-3'>
           {productsData.length === 0
             ? (
