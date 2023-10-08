@@ -3,17 +3,19 @@
   width: 100%;
   table-layout: fixed;
 }
-
 .table thead th {
-  background-color: rgba(72, 231, 28, 0.5) !important;
+  background-color: var(--colorDetail) !important;
 }
-
 .table tbody tr th {
   background-color: #575757 !important;
 }
-
 .table td p {
   overflow: hidden !important;
   text-overflow: ellipsis; 
   white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .displayNone{
+    display: none !important;
+  }
 }
