@@ -9,14 +9,14 @@ const Table = () => {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Descripción</th>
-            <th>URL Imagen</th>
-            <th>Price</th>
+            <th className='displayNone'>Descripción</th>
+            <th className='displayNone'>URL Imagen</th>
+            <th className='displayNone'>Price</th>
             <th>
               Acciones
               <Link className='text-decoration-none text-white' to={'/registerproduct'}>
                 <button className="btn btn-primary action-button mx-2">
-                  <i className="bi bi-arrow-up-circle"> Subir Producto </i>
+                  <i className="bi bi-arrow-up-circle"> Nuevo </i>
                 </button>
               </Link>
             </th>
@@ -28,16 +28,16 @@ const Table = () => {
               <td>
                 <p className='m-0'>{product.name}</p>
               </td>
-              <td>
+              <td className='displayNone'>
                 <p className='m-0'>{product.description}</p>
               </td>
-              <td>
+              <td className='displayNone'>
                 <p className='m-0'>{product.imageUrl}</p>
               </td>
-              <td>
+              <td className='displayNone'>
                 <p className='m-0'>{product.price}</p>
               </td>
-              <td>
+              <td className='text-center'>
                 <button className="btn btn-danger action-button" onClick={() => deleteProduct(product._id) }>
                   <i className="bi bi-trash">Eliminar</i>
                 </button>
