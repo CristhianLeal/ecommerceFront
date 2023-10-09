@@ -12,7 +12,8 @@
 }
 .imgDetail{
   transition: box-shadow 0.3s ease-in-out;
-  max-height: 250px;
+  max-height: 350px;
+  border-radius: 5px;
   width: auto;
 }
 .imgDetail:hover{
@@ -35,6 +36,9 @@
   max-width: 90% !important;
   max-height: 90% !important;
 }
+.btn-success{
+  background-color: var(--colorDetail);
+}
 .Efectd1 {
   transition: transform 1s ease-in-out;
   transform: translateY(-110%);
@@ -49,7 +53,8 @@
   .SubDetail{
     font-size: 30px;
   }
-}
-.btn-success{
-  background-color: var(--colorDetail);
+  .imgDetail{
+    max-height: 250px;
+    width: auto;
+  }
 }

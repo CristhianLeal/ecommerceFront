@@ -39,11 +39,13 @@ const DetailPage = () => {
     <div className='conten'>
       <div ref={ERef0} className={`Efectd1 ${visible[0] ? 'EfectVisibled1' : ''}`}>
         <h3 className='text-black text-center titleDetail mt-4'>{productData?.name}</h3>
-        <div className='text-center pt-4 pb-4'>
-          <img src={productData?.imageUrl} className="imgDetail border-0" alt="Imagen" onClick={() => toggleFullScreenImage(productData?.imageUrl)} />
+        <div className='d-flex flex-column flex-md-row justify-content-center align-items-center gap-0 gap-lg-5 pt-2 pb-3'>
+          <img src={productData?.imageUrl} className="imgDetail mx-2 mb-4 mb-md-0" alt="Imagen" onClick={() => toggleFullScreenImage(productData?.imageUrl)} />
+          <div>
+            <p className='text-black SubDetail text-center mb-4 mb-md-0 px-2'>Descripción: {productData?.description}</p>
+          </div>
         </div>
-        <p className='text-black SubDetail text-center mb-4 px-2'>Descripción: {productData?.description}</p>
-        <p className='text-black SubDetail text-center mb-4 px-2'>Precio:$ {productData?.price}!</p>
+        <p className='text-black SubDetail text-center mb-3 px-2'>Precio:$ {productData?.price}!</p>
         <div className='text-center'>
           <Link className='text-decoration-none text-white mt-4 ' to={'/'}>
             <button className="btn btn-success mx-2">
