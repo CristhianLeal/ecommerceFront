@@ -18,7 +18,6 @@ const Navbar = () => {
       try {
         const response = await axios.get('http://localhost:8003/products/log')
         sessionStorage.setItem('token', response.data.token)
-        console.log(response)
       } catch (error) {
         console.error('Error al obtener token', error)
       }
