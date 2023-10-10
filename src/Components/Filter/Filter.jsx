@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 import axios from 'axios'
 const Filter = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm()
+  const [loading, setLoading] = useState(false)
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const onSubmit = async (data) => {
+    setLoading(true)
     if (data !== null) {
-      console.log(data)
       try {
         const headers = {
           'Content-Type': 'application/json'
@@ -13,7 +15,7 @@ const Filter = () => {
         const response = await axios.post('http://localhost:8003/products/filter', data, { headers })
         if (response.status === 200) {
           toast.success(response.data.message)
-          window.location.href = `/detailpage/${response.data.data[0]._id}`
+          window.location.href = `/detailpage/${response.data.data[0].id}`
         } else {
           toast.error(response.data.message)
         }
@@ -21,7 +23,7 @@ const Filter = () => {
         console.error('Error al buscar producto', error)
         toast.error(error.response.data.message)
       }
-      reset()
+      setLoading(false)
     }
   }
   return (
@@ -30,19 +32,31 @@ const Filter = () => {
         <div className=' pe-3'>
           <input
             type="text"
-            className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-            placeholder="Frutos Secos"
-            {...register('name', {
-              required: 'name is required',
+            className={`form-control ${errors.searchQuery ? 'is-invalid' : ''}`}
+            placeholder="Busca tu producto!"
+            {...register('searchQuery', {
+              required: 'Contenido requerido',
               minLength: {
                 value: 3,
-                message: 'El Nombre debe tener al menos 3 caracteres'
+                message: 'El contenido debe tener al menos 3 caracteres'
+              },
+              maxLength: {
+                value: 20,
+                message: 'El contenido no debe tener mas de 20 caracteres'
               }
             })}
           />
-          {errors.name && <div className="invalid-feedback">{errors.name.message}</div>}
+          {errors.searchQuery && <div className="invalid-feedback">{errors.searchQuery.message}</div>}
         </div>
-        <button type="submit" className="btn btn-primary">BUSCAR</button>
+        {!loading &&
+          <button type="submit" className="btn btn-primary">
+            BUSCAR
+          </button>}
+        {loading &&
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden"></span>
+          </div>
+        }
       </form>
     </div>
   )
