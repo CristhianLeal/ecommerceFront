@@ -42,10 +42,15 @@ const Home = () => {
         <div className='d-flex flex-wrap align-items-center justify-content-center gap-5 mt-3 mb-3'>
           {productsData.length === 0
             ? (
-            <div>Cargando productos...</div>
+            <div className='d-flex flex-row'>
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden"></span>
+              </div>
+                <p className='d-flex justify-content-center align-items-center m-0 py-0 px-3'>Cargando productos...</p>
+            </div>
               )
             : (productsData.map((product) => (
-            <Card key={product._id} product={product} />
+            <Card key={product.id} product={product} />
               )))}
         </div>
       </div>
