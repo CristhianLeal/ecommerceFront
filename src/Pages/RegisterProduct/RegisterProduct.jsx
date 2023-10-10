@@ -3,11 +3,13 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import './registerProduct.css'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const RegisterProduct = () => {
+  const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm()
   const onSubmit = async (data) => {
+    setLoading(true)
     if (name === null) {
       try {
         const token = sessionStorage.getItem('token')
@@ -17,6 +19,7 @@ const RegisterProduct = () => {
         }
         const response = await axios.post('http://localhost:8003/products', data, { headers })
         if (response.status === 201) {
+          reset()
           toast.success(response.data.message)
           window.location.href = '/adminproducts'
         } else {
@@ -26,7 +29,6 @@ const RegisterProduct = () => {
         console.error('Error al crear producto', error)
         toast.error(error.response.data.message)
       }
-      reset()
     } else {
       try {
         const token = sessionStorage.getItem('token')
@@ -40,7 +42,7 @@ const RegisterProduct = () => {
           clearStorage()
           window.location.href = '/adminproducts'
         } else {
-          toast.error(response.data)
+          toast.error(response.data.message)
         }
       } catch (error) {
         console.error('Error al editar producto', error)
@@ -120,8 +122,8 @@ const RegisterProduct = () => {
                 message: 'La imagen debe tener al menos 5 caracteres'
               },
               maxLength: {
-                value: 200,
-                message: 'La imagen no debe tener más de 200 caracteres'
+                value: 500,
+                message: 'La imagen no debe tener más de 500 caracteres'
               }
             })} />
             {errors.imageUrl && <div className="invalid-feedback">{errors.imageUrl.message}</div>}
@@ -145,7 +147,14 @@ const RegisterProduct = () => {
             })} />
             {errors.price && <div className="invalid-feedback">{errors.price.message}</div>}
           </div>
-          <button type="submit" className="btn btn-primary">{name === null ? 'CREAR PRODUCTO' : 'EDITAR PRODUCTO'}</button>
+          {!loading && <button type="submit" className="btn btn-primary">
+            {name === null ? 'CREAR PRODUCTO' : 'EDITAR PRODUCTO'}
+          </button>}
+          {loading && (
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden"></span>
+              </div>
+          )}
         </form>
       </div>
       <div className='d-flex flex-row'>
