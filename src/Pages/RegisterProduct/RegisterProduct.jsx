@@ -17,7 +17,7 @@ const RegisterProduct = () => {
           'Content-Type': 'application/json',
           accesstoken: `${token}`
         }
-        const response = await axios.post('http://localhost:8003/products', data, { headers })
+        const response = await axios.post('https://ecommerce-back-v671.onrender.com/products', data, { headers })
         if (response.status === 201) {
           reset()
           toast.success(response.data.message)
@@ -36,7 +36,7 @@ const RegisterProduct = () => {
           'Content-Type': 'application/json',
           accesstoken: `${token}`
         }
-        const response = await axios.put(`http://localhost:8003/products/${id}`, data, { headers })
+        const response = await axios.put(`https://ecommerce-back-v671.onrender.com/products/${id}`, data, { headers })
         if (response.status === 201) {
           toast.success(response.data.message)
           clearStorage()

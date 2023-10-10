@@ -16,7 +16,7 @@ const Navbar = () => {
   const loging = () => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8003/products/log')
+        const response = await axios.get('https://ecommerce-back-v671.onrender.com/products/log')
         sessionStorage.setItem('token', response.data.token)
       } catch (error) {
         console.error('Error al obtener token', error)

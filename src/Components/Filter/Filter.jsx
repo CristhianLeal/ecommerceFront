@@ -12,7 +12,7 @@ const Filter = () => {
         const headers = {
           'Content-Type': 'application/json'
         }
-        const response = await axios.post('http://localhost:8003/products/filter', data, { headers })
+        const response = await axios.post('https://ecommerce-back-v671.onrender.com/products/filter', data, { headers })
         if (response.status === 200) {
           toast.success(response.data.message)
           window.location.href = `/detailpage/${response.data.data[0].id}`

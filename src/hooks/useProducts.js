@@ -9,7 +9,7 @@ export const useProducts = (id) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8003/products')
+        const response = await axios.get('https://ecommerce-back-v671.onrender.com/products')
         setProductsData(response.data.products)
       } catch (error) {
         console.error('Error al obtener los datos de los productos:', error)
@@ -22,7 +22,7 @@ export const useProducts = (id) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:8003/products/${id}`)
+        const response = await axios.get(`https://ecommerce-back-v671.onrender.com/products/${id}`)
         setProductData(response.data.product)
       } catch (error) {
         console.error('Error al obtener los posts:', error)
@@ -40,7 +40,7 @@ export const useProducts = (id) => {
         'Content-Type': 'application/json',
         accesstoken: `${token}`
       }
-      const response = await axios.delete(`http://localhost:8003/products/${id}`, { headers })
+      const response = await axios.delete(`https://ecommerce-back-v671.onrender.com/products/${id}`, { headers })
       if (response.status === 200) {
         toast.success(response.data.message)
         setDeleted(!deleted)
