@@ -58,3 +58,9 @@
     width: auto;
   }
 }
+@media (max-width: 900px) {
+  .imgDetail{
+    max-height: 300px;
+    width: auto;
+  }
+}
