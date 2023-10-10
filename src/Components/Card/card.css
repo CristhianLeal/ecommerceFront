@@ -28,10 +28,9 @@
   font-size: 30px;
 }
 .card-img-top {
-  height: 100% !important;
   width: auto !important;
   object-fit: cover;
-  max-height: 340px;
+  height: 340px;
 }
 @media (max-width: 768px) {
   .card {
