@@ -53,7 +53,7 @@ export const useProducts = (id) => {
   }
 
   const editProduct = (product) => {
-    localStorage.setItem('key', product._id)
+    localStorage.setItem('key', product.id)
     localStorage.setItem('name', product.name)
     localStorage.setItem('description', product.description)
     localStorage.setItem('imageUrl', product.imageUrl)
