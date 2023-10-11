@@ -10,7 +10,8 @@ Challenge IT Crowd
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) 
-![Eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white) 
+![Eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 </div>
 
@@ -26,7 +27,8 @@ Your task will be building a frontend that can:
     - The **price** of the product.
 - The detailed view should include the previous properties as well as the **description**.
 - Extras
-- Implement an ‘admin’ view where the user can manage products and perform all CRUD operations through the UI.
+- Implement an ‘admin’ view where the user can manage products and perform all CRUD operations through the UI .
+- An interface was created for user login and creation. To create a new user is necessary the token.
 
 ## How the App Works:
 
