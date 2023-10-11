@@ -28,6 +28,9 @@ Your task will be building a frontend that can:
 - Extras
 - Implement an ‘admin’ view where the user can manage products and perform all CRUD operations through the UI.
 
+## How the App Works:
+
+The frontend fetches product data from the backend API and renders it using React components. The UI allows users to view a list of products, navigate to detailed product views, and manage products in an 'admin' interface. The app can be styled using CSS and Bootstrap for a visually appealing interface.
 
 ## Development
 
@@ -65,6 +68,7 @@ npm install
  - [react](https://es.react.dev/) Execution environment necessary to run the application.
  - [react-dom](https://es.legacy.reactjs.org/) Library that is responsible for rendering React components in the browser.
  - [react-hook-form](https://react-hook-form.com/) Library for managing form state and validation in React applications.
+ - [Bootstrap](https://getbootstrap.com/) Bootstrap is a popular front-end framework that provides pre-styled design components, grids, and CSS to create responsive web applications.
  - [react-toastify](https://www.npmjs.com/package/react-toastify) React-Toastify is a library for displaying elegant and customizable pop-up notifications (toasts) in React web applications.
  - [axios](https://axios-http.com/) Promise-based HTTP client for making asynchronous requests in browser and Node.js environments
 
