@@ -26,6 +26,7 @@ const Navbar = () => {
     sessionStorage.clear()
     closeNavbar()
     setLoged(false)
+    reload()
   }
   useEffect(() => {
     const token = sessionStorage.getItem('token')
