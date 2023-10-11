@@ -10,7 +10,7 @@ const Table = () => {
     deleteProduct(id)
   }
   useEffect(() => {
-    if (productsData.length > 0) {
+    if (productsData?.length > 0) {
       setLoading([])
     }
   }, [productsData])

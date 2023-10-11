@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './detailPage.css'
 
 import { useProducts } from '../../hooks/useProducts'
+import { HomeButton } from '../../Components'
 
 const DetailPage = () => {
   const { id } = useParams()
@@ -62,13 +63,7 @@ const DetailPage = () => {
           </div>
         </div>
         <p className='text-black SubDetail text-center mb-3 px-2'>Precio:$ {productData?.price}!</p>
-        <div className='text-center'>
-          <Link className='text-decoration-none text-white mt-4 ' to={'/'}>
-            <button className="btn btn-success mx-2">
-              ATRAS
-            </button>
-          </Link>
-        </div>
+        <HomeButton/>
       </div>
       {showFullScreenImage && (
         <div className="fullscreen-image-overlay" onClick={toggleFullScreenImage}>
