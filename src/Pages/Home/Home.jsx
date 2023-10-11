@@ -54,7 +54,7 @@ const Home = () => {
         const headers = {
           'Content-Type': 'application/json'
         }
-        const response = await axios.post('http://localhost:8003/products/filter', data, { headers })
+        const response = await axios.post('https://ecommerce-back-v671.onrender.com/products/filter', data, { headers })
         if (response.status === 200) {
           setFiltredData(response.data.data)
           toast.success(response.data.message)
